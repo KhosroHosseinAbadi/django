@@ -1,0 +1,17 @@
+{% extends 'level5/base.html' %}
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="content">
+
+    {% if user.is_authenticated %}
+    <h1>Welcome {{ user.username }}</h1>
+    <img src="{{ user.profile.profile_pic.url }}" width="200">
+
+    {% else %}
+    <h1>You are not logged in!</h1>
+    <p>If you have an account, please login <a href="{% url 'app1:login' %}">here</a></p>
+    <p>You don't have any account yet? Please sign up <a href="{% url 'app1:signup' %}">here</a></p>
+    {% endif %}
+</div>
+{% endblock %}

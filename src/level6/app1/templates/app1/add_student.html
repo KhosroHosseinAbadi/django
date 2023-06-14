@@ -1,0 +1,18 @@
+{% extends 'level6/base.html' %}
+{% block title %} Add student {% endblock %}
+
+{% block content %}
+<div class="content">
+
+    <h2>Add student</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-primary">Add</button>
+        <a class="btn btn-danger" href="{% url 'app1:school_detail' pk=pk %}" >Cancel</a>
+    </form>
+
+</div>
+{% endblock %}

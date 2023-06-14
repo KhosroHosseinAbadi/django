@@ -1,0 +1,33 @@
+{% extends 'level6/base.html' %}
+{% block title %}
+
+    {% if not form.instance.pk %}
+        Create New School
+    {% else %}
+        Update School {{ school.name }}
+    {% endif %}
+
+{% endblock %}
+
+{% block content %}
+<div class="content">
+
+    <h2>
+        {% if not form.instance.pk %} Create New School {% else %} Update {{ school.name }}{% endif %}
+    </h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        {% if not form.instance.pk %}
+        <button type="submit" class="btn btn-primary">Create</button>
+        <a class="btn btn-danger" href="{% url 'app1:school_list' %}" >Cancel</a>
+        {% else %} 
+        <button type="submit" class="btn btn-warning">Update</button>
+        <a class="btn btn-primary" href="{% url 'app1:school_detail' pk=school.pk %}" >Cancel</a>
+        {% endif %}
+        
+    </form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'level6/base.html' %}
+{% block title %}School List{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h1>Here are School List!</h1>
+    <p>Number of schools: {{ school_list.count }}</p>
+    <table class="table table-success table-hover">
+        {% for school in school_list %}
+        <tr>
+            <td>
+                <a href="{% url 'app1:school_detail' pk=school.pk %}">{{ school }}</a>
+                ({{ school.students.count }} students)
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+</div>
+{% endblock %}

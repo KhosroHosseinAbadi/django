@@ -1,9 +1,0 @@
-django-admin startproject [project_name]
-django-admin startapp [app_name]
-python manage.py migrate
-python manage.py runserver
-python manage.py makemigrations [app_name]
-python manage.py createsuperuser
-
-
-in terminal enter env to see environment variables

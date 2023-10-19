@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %} | Django</title>
+    <link rel="stylesheet" href="{% static 'blog/master/css/master.css' %}" >
+    <link rel="stylesheet" href="{% static 'blog/bootstrap/css/bootstrap.min.css' %}" >
+    <script src="{% static 'blog/bootstrap/js/bootstrap.min.js' %}"></script>
+  </head>
+<body>
+  <header class="p-3 bg-primary text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="{% url 'index' %}" class="nav-link px-2 text-white">Home</a></li>
+          <li><a href="{% url 'schools:list_school' %}" class="nav-link px-2 text-white">Schools</a></li>
+          <li><a href="{% url 'schools:create_school' %}" class="nav-link px-2 text-white">Add School</a></li>
+          <li><a href="{% url 'students:create_student' %}" class="nav-link px-2 text-white">Add Student</a></li>
+        </ul>
+
+
+        <div class="text-end">
+          <a class="btn btn-warning" href="{% url 'admin:index' %}" class="nav-link px-2 text-white">Admin</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <footer>
+    <div class="container text-white">
+      Powerd by Django Framework
+    </div>
+  </footer>
+
+</body>
+</html>
+

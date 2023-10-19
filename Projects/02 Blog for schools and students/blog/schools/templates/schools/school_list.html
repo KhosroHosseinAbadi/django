@@ -1,0 +1,25 @@
+{% extends "blog/base.html" %}
+{% block title %}School List{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h1>Here are list of schools</h1>
+    {% if school_list %}
+    <p>Number of schools: {{ school_list.count }}</p>
+    <table class="table table-success table-hover">
+        {% for school in school_list %}
+        <tr>
+            <td>
+                <a href="{% url 'schools:detail_school' pk=school.pk %}">{{ school }}</a>
+                ({{ school.students.count }} students)
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No schools are availabe.</p>
+    {{ list_school }}
+    {% endif %}
+
+</div>
+{% endblock %}

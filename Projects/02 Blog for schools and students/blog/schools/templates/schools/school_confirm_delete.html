@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+{% block title %}Delete School{% endblock %}
+
+{% block content %}
+<div class="content">
+
+    <h1>Deleting School</h1>
+    <p>Are you sure you want to delete "{{ school.name }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" class="btn btn-danger" value="Delete">
+        <a class="btn btn-primary" href="{% url 'schools:detail_school' pk=school.pk %}" >Cancel</a>
+    </form>
+
+</div>
+{% endblock %}
+
